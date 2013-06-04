@@ -20,7 +20,9 @@
             </div>
             <script type="text/javascript">
                 $(function() {
-                    var calendar = new Calendar($("#maincalendar"));
+                    var calendar = new Calendar($("#maincalendar"), function () {
+                        calendar.addColumn( "Test" );
+                    });
                 });
             </script>
         </div>
@@ -41,8 +43,11 @@
                 <br>
                 <br>
                 Version 1.0.0
+<<<<<<< HEAD
            </div>
 
+=======
+>>>>>>> branch 'master' of https://github.com/danielhogan/Timeclock.git
             </p>
         </div>
         <div data-role="view" id="tabstrip-cal" data-title="Demo">
