@@ -21,7 +21,7 @@
             <script type="text/javascript">
                 $(function() {
                     var calendar = new Calendar($("#maincalendar"), function () {
-                        calendar.addColumn( "Test" );
+                        calendar.addColumn( "Pay" );
                         
                         calendar.setDate( new Date( 2013, 4, 1 ) );
                         calendar.updateDisplay( );
@@ -29,13 +29,25 @@
                 });
             </script>
         </div>
+        
         <div data-role="view" id="tabstrip-home" data-title="Home">
-            <h1><font color='red'>Timeclock for mobile devices</font></h1>
+           
+           <div>
+               <style scoped>
+                   h1
+                   {
+                       border-style:solid;
+                       border-color:Black;
+                       background-color:Red;
+                       color: Black;
+                   }
+               </style>
+               <h1>Timeclock for mobile devices</h1>
+           </div>
             <p>
-                Made for those who need to keep track of their work schedule at the touch of a app!
-                <br>
-                <br><br>
-                <br>
+                Keep track of all your shifts, times, and pay with all one app!
+                
+                  <br><br><br><br><br>
                 Created by:
                 Daniel Hogan,
                 Tyler Camp
@@ -43,7 +55,11 @@
                 <br>
                 Version 1.0.0
             </p>
-        </div>
+               </div>
+
+
+            
+        
         <div data-role="view" id="tabstrip-cal" data-title="Demo">
             <script type="text/javascript">
                 $(function() {
@@ -61,10 +77,11 @@
             <div id='helloWorldInput'>
                 <label for="txtName" style="display: inline-block;">Shift Time:</label>
                 <input type="text" id="txtName" value="" />
+            
             </div>
              <div id='helloWorldInput'>
                 <label for="txtName" style="display: inline-block;">Hours Paid:</label>
-                <input type="text" id="txtName" value="" />
+                <input type="text" id="txtName" value="" style="width:3em"/> .<input type="text" id="txtName" value="" style="width:3em"/>
             </div>
              
            
@@ -98,7 +115,6 @@
                 <div data-role="tabstrip">
                     <a href="#tabstrip-home" data-icon="home">Home</a>
                     <a href="#tabstrip-maincal" data-icon="globe">MainCal</a>
-                    <a href="#tabstrip-cal" data-icon="share">Test</a>
                     <a href="#tabstrip-uiinteraction" data-icon="bookmarks">Calender</a>
                     <a href="#tabstrip-geolocation" data-icon="more">More</a>
                 </div>
