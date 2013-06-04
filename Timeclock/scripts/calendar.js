@@ -3,10 +3,19 @@
 Date.prototype.countWeeksOfMonth = function() {
     var year         = this.getFullYear();
     var month_number = this.getMonth();
-    var firstOfMonth = new Date(year, month_number-1, 1);
-    var lastOfMonth  = new Date(year, month_number, 0);
+    var firstOfMonth = new Date(year, month_number, 1);
+    var lastOfMonth  = new Date(year, month_number+1, 0);
     var used         = firstOfMonth.getDay() + lastOfMonth.getDate();
-    return Math.ceil( used / 7);
+    return Math.ceil( used / 7 );
+}
+
+Date.prototype.getMonthName = function() {
+    var monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    
+    return monthNames[this.getMonth()];
 }
 
 function Calendar(
@@ -15,8 +24,7 @@ function Calendar(
     )
 {
     this.element = element;
-    var currentMonth = 1;
-    var currentYear = 2000;
+    var currentDate = new Date( 2000, 1, 1);
     
     element.load( "scripts/calendartemplate.html", function () {
         var headElement = element.find( "thead" );
@@ -33,7 +41,7 @@ function Calendar(
         this.updateDisplay( );
         
         loadedCallback( );
-    });
+    }.bind( this ));
     
     /* Returns an index that can be used for later modifying the newly-created column */
     this.addColumn = function(
@@ -52,30 +60,53 @@ function Calendar(
     this.updateDisplay = function(
         )
     {
-        var weekCount = new Date( currentYear, currentMonth, 1 ).countWeeksOfMonth( );
+        $( "#month-header" ).empty( );
+        $( "#month-header" ).append( currentDate.getMonthName( ) );
+        
+        var weekCount = currentDate.countWeeksOfMonth( );
         
         var tableBody = element.find( "tbody" );
         tableBody.empty( );
         
-        for( var i = 0; i < weekCount; i++ )
+        var currentDisplayDate = new Date( currentDate.getFullYear( ), currentDate.getMonth( ), 1 );
+        currentDisplayDate.setDate( -currentDisplayDate.getDay( ) + 1 );
+        
+        for( var week = 0; week < weekCount; week++ )
         {
             var newRow = $( "<tr>" );
+            
+            for( var i = 0; i < 7; i++ )
+            {
+                var currentDayElement = $("<td>" + currentDisplayDate.getDate( ).toString( ) + "</td>");
+                if( currentDisplayDate.getMonth( ) != currentDate.getMonth( ) )
+                    currentDayElement.addClass( "dayOutsideMonth" );
+                newRow.append( currentDayElement );
+                currentDisplayDate.setDate( currentDisplayDate.getDate( ) + 1 );
+            }
+            
             tableBody.append( newRow );
         }
+    }
+    
+    this.setDate = function(
+        date /* A JavaScript date object */
+        )
+    {
+        currentDate = date;
     }
     
     this.setMonth = function(
         monthIndex /* Month, in the range [1, 12] */
         )
     {
-        currentMonth = month;
+        currentDate.setMonth( monthIndex - 1 );
     }
     
     this.setYear = function(
         year
         )
     {
-        currentYear = year;
+        currentDate.setFullYear( year );
     }
     
     this.setSelectedDay = function(

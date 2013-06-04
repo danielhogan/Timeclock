@@ -22,6 +22,9 @@
                 $(function() {
                     var calendar = new Calendar($("#maincalendar"), function () {
                         calendar.addColumn( "Test" );
+                        
+                        calendar.setDate( new Date( 2013, 4, 1 ) );
+                        calendar.updateDisplay( );
                     });
                 });
             </script>
