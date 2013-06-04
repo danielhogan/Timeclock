@@ -14,7 +14,7 @@
         <link href="styles/main.css" rel="stylesheet" />
     </head>
     <body>
-        <div data-role="view" id="tabstrip-home" data-title="Hello World!">
+        <div data-role="view" id="tabstrip-maincal" data-title="Main Calendar">
             <div id="maincalendar">
                 
             </div>
@@ -24,12 +24,64 @@
                 });
             </script>
         </div>
+        <div data-role="view" id="tabstrip-home" data-title="Home">
+            <h1><font color='red'>Timeclock for mobile devices</font></h1>
+            <p>
+                Made for those who need to keep track of their work schedule at the touch of a app!
+                <br>
+                <br><br>
+                <br>
+                Created by:
+                Daniel Hogan,
+                Tyler Camp
+                <br>
+                <br>
+                Version 1.0.0
+          
+
+            </p>
+        </div>
         <div data-role="view" id="tabstrip-cal" data-title="Demo">
             <script type="text/javascript">
                 $(function() {
                     $("#tabstrip-cal").load("scripts/calendartemplate.html");
                 });
             </script>
+        </div>
+
+        <div data-role="view" id="tabstrip-uiinteraction" data-title="Calender">
+            <h1>Enter Shift Information</h1>
+            <div id='helloWorldInput'>
+                <label for="txtName" style="display: inline-block;">Shift Name:</label>
+                <input type="text" id="txtName" value="" />
+            </div>
+            <div id='helloWorldInput'>
+                <label for="txtName" style="display: inline-block;">Shift Time:</label>
+                <input type="text" id="txtName" value="" />
+            </div>
+             <div id='helloWorldInput'>
+                <label for="txtName" style="display: inline-block;">Hours Paid:</label>
+                <input type="text" id="txtName" value="" />
+            </div>
+             
+           
+            <div id='helloWorldText' style="display:block;"></div>
+            <div class="buttonArea">
+                <a id="resetButton" data-role="button" data-click="sayHelloReset" data-icon="refresh">Reset</a>
+                <a id="submitButton" data-role="button" data-click="sayHello" data-icon="compose">Submit</a>
+            </div>
+        </div>
+
+        <div data-role="view" id="tabstrip-geolocation" data-title="More">
+            <h1>Other Options</h1>
+            <div id="geoLocationContainer">
+               <p>Would you like to enable the Pay Date feature?</p>
+                <input type="radio" value="Yes">Yes
+                <input type="radio" value="No">No
+                <p>This feature will allow you to set your pay date and be able to view your gross paycheck. </p>
+               
+                
+            </div>
         </div>
 
         <div data-role="layout" data-id="mobile-tabstrip">
@@ -42,7 +94,10 @@
             <div data-role="footer">
                 <div data-role="tabstrip">
                     <a href="#tabstrip-home" data-icon="home">Home</a>
+                    <a href="#tabstrip-maincal" data-icon="globe">MainCal</a>
                     <a href="#tabstrip-cal" data-icon="share">Test</a>
+                    <a href="#tabstrip-uiinteraction" data-icon="bookmarks">Calender</a>
+                    <a href="#tabstrip-geolocation" data-icon="more">More</a>
                 </div>
             </div>
         </div>
