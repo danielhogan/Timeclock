@@ -42,6 +42,8 @@ The user will also have the option to set their 'pay date'. When the 'set pay da
 output: "When is your next pay day?" and The user can click on a day. It will ask to confirm it, and upon yes,
 It will ask, "How often is your pay?" With options of 'Daily','Weekly', Biweekly', and 'Monthly'.
 
+EDIT: All hours and pay related mentioned above will appear in the 8th column only.
+
 
 There will also be an 'about' section that explains what the program does, how to use it, and if there are bugs or issues,
 they can send to my email (djhogan44@gmail.com)
