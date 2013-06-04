@@ -33,7 +33,7 @@ function Calendar(
         this.updateDisplay( );
         
         loadedCallback( );
-    });
+    }.bind( this ));
     
     /* Returns an index that can be used for later modifying the newly-created column */
     this.addColumn = function(

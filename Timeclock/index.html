@@ -21,34 +21,42 @@
             <script type="text/javascript">
                 $(function() {
                     var calendar = new Calendar($("#maincalendar"), function () {
-                        calendar.addColumn( "Test" );
+                        calendar.addColumn( "Pay" );
                     });
                 });
             </script>
         </div>
+        
         <div data-role="view" id="tabstrip-home" data-title="Home">
-           <table>
-               <tr><td><h1><font color='red'>Timeclock for mobile devices</font></h1></td></tr>
-               </table>
+           
+           <div>
+               <style scoped>
+                   h1
+                   {
+                       border-style:solid;
+                       border-color:Black;
+                       background-color:Red;
+                       color: Black;
+                   }
+               </style>
+               <h1>Timeclock for mobile devices</h1>
+           </div>
             <p>
-                Made for those who need to keep track of their work schedule at the touch of an app!
-                This is a bag of Doritos.
-               <div align ="center">
-                   <img src="doritos.jpg" width="100" height="130" alt="Doritos" usemap="#doritos">
+                Keep track of all your shifts, times, and pay with all one app!
                 
-                  <br>
+                  <br><br><br><br><br>
                 Created by:
                 Daniel Hogan,
                 Tyler Camp
                 <br>
                 <br>
                 Version 1.0.0
-
+            </p>
                </div>
 
 
-            </p>
-        </div>
+            
+        
         <div data-role="view" id="tabstrip-cal" data-title="Demo">
             <script type="text/javascript">
                 $(function() {
@@ -104,7 +112,6 @@
                 <div data-role="tabstrip">
                     <a href="#tabstrip-home" data-icon="home">Home</a>
                     <a href="#tabstrip-maincal" data-icon="globe">MainCal</a>
-                    <a href="#tabstrip-cal" data-icon="share">Test</a>
                     <a href="#tabstrip-uiinteraction" data-icon="bookmarks">Calender</a>
                     <a href="#tabstrip-geolocation" data-icon="more">More</a>
                 </div>
